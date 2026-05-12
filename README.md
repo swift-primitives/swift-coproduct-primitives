@@ -150,6 +150,7 @@ The feature gate is uniform across platforms; the package builds clean everywher
 ## Community
 
 <!-- BEGIN: discussion -->
+Discuss this package: [swift-institute/discussions/26](https://github.com/orgs/swift-institute/discussions/26)
 <!-- END: discussion -->
 
 ## License
