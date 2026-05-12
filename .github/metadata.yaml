@@ -1,0 +1,11 @@
+# .github/metadata.yaml
+description: "The Coproduct n-ary coproduct type using parameter packs in Swift — evergreen-gated."
+topics:
+  - primitives
+  - coproduct
+  - parameter-packs
+  - data-structures
+  - type-safety
+homepage: "https://swift-institute.org"
+readme:
+  family: E
