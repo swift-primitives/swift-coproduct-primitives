@@ -16,8 +16,14 @@
 
 #if hasFeature(VariadicEnum)
 
+    #if swift(<6.4)
     extension Coproduct: Hash.`Protocol`
     where repeat each Element: Hash.`Protocol` & ~Copyable & ~Escapable {
+    #else
+    // Swift 6.4+: Hash.Protocol = Swift.Hashable. Drops ~Escapable.
+    extension Coproduct: Hash.`Protocol`
+    where repeat each Element: Hash.`Protocol` & ~Copyable {
+    #endif
 
         /// Hashes the essential components of this coproduct into the given hasher.
         ///

@@ -19,8 +19,14 @@
 
 #if hasFeature(VariadicEnum)
 
+    #if swift(<6.4)
     extension Coproduct: Comparison.`Protocol`
     where repeat each Element: Comparison.`Protocol` & ~Copyable & ~Escapable {
+    #else
+    // Swift 6.4+: Comparison.Protocol = Swift.Comparable. Drops ~Escapable.
+    extension Coproduct: Comparison.`Protocol`
+    where repeat each Element: Comparison.`Protocol` & ~Copyable {
+    #endif
 
         /// Returns whether the left-hand side coproduct is less than the
         /// right-hand side under the lexicographic ordering: an earlier active

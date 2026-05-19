@@ -13,8 +13,14 @@
 
 #if hasFeature(VariadicEnum)
 
+    #if swift(<6.4)
     extension Coproduct: Equation.`Protocol`
     where repeat each Element: Equation.`Protocol` & ~Copyable & ~Escapable {
+    #else
+    // Swift 6.4+: Equation.Protocol = Swift.Equatable. Drops ~Escapable.
+    extension Coproduct: Equation.`Protocol`
+    where repeat each Element: Equation.`Protocol` & ~Copyable {
+    #endif
 
         /// Returns whether two `Coproduct` values are equal.
         ///
