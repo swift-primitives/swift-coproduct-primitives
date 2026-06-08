@@ -11,10 +11,13 @@ import Testing
 
 @Suite
 struct `Coproduct Tests` {
-    @Suite struct ModuleImport {}
+    @Suite struct Unit {}
+    @Suite struct `Edge Case` {}
+    @Suite struct Integration {}
+    @Suite(.serialized) struct Performance {}
 }
 
-extension `Coproduct Tests`.ModuleImport {
+extension `Coproduct Tests`.Unit {
     @Test
     func `module imports cleanly`() {
         // Intentional no-op. The `import Coproduct_Primitives` above is
