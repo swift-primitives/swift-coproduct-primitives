@@ -17,40 +17,40 @@
 #if hasFeature(VariadicEnum)
 
     #if swift(<6.4)
-    extension Coproduct: Hash.`Protocol`
-    where repeat each Element: Hash.`Protocol` & ~Copyable & ~Escapable {
-        /// Hashes the essential components of this coproduct into the given hasher.
-        ///
-        /// The active pack position is folded into the hash alongside the payload's
-        /// own hash, preserving the equals/hashCode contract alongside `==`.
-        @inlinable
-        @_disfavoredOverload
-        public borrowing func hash(into hasher: inout Hasher) {
-            switch self {
-            case .at(let value):
-                value.hash(into: &hasher)
+        extension Coproduct: Hash.`Protocol`
+        where repeat each Element: Hash.`Protocol` & ~Copyable & ~Escapable {
+            /// Hashes the essential components of this coproduct into the given hasher.
+            ///
+            /// The active pack position is folded into the hash alongside the payload's
+            /// own hash, preserving the equals/hashCode contract alongside `==`.
+            @inlinable
+            @_disfavoredOverload
+            public borrowing func hash(into hasher: inout Hasher) {
+                switch self {
+                case .at(let value):
+                    value.hash(into: &hasher)
+                }
             }
         }
-    }
     #else
-    extension Coproduct: Swift.Hashable
-    where repeat each Element: Hash.`Protocol` & ~Copyable {
-        /// Hashes the essential components of this coproduct into the given hasher.
-        ///
-        /// The active pack position is folded into the hash alongside the payload's
-        /// own hash, preserving the equals/hashCode contract alongside `==`.
-        @inlinable
-        @_disfavoredOverload
-        public borrowing func hash(into hasher: inout Hasher) {
-            switch self {
-            case .at(let value):
-                value.hash(into: &hasher)
+        extension Coproduct: Swift.Hashable
+        where repeat each Element: Hash.`Protocol` & ~Copyable {
+            /// Hashes the essential components of this coproduct into the given hasher.
+            ///
+            /// The active pack position is folded into the hash alongside the payload's
+            /// own hash, preserving the equals/hashCode contract alongside `==`.
+            @inlinable
+            @_disfavoredOverload
+            public borrowing func hash(into hasher: inout Hasher) {
+                switch self {
+                case .at(let value):
+                    value.hash(into: &hasher)
+                }
             }
         }
-    }
 
-    extension Coproduct: Hash.`Protocol`
-    where repeat each Element: Hash.`Protocol` & ~Copyable {}
+        extension Coproduct: Hash.`Protocol`
+        where repeat each Element: Hash.`Protocol` & ~Copyable {}
     #endif
 
 #endif  // hasFeature(VariadicEnum)
