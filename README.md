@@ -134,12 +134,6 @@ Dependencies: `swift-equation-primitives`, `swift-hash-primitives`, `swift-compa
 
 ---
 
-## Community
-
-<!-- BEGIN: discussion -->
-Discuss this package: [swift-institute/discussions/26](https://github.com/orgs/swift-institute/discussions/26)
-<!-- END: discussion -->
-
 ## License
 
 Apache 2.0. See [LICENSE.md](LICENSE.md).
