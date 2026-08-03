@@ -33,7 +33,7 @@ let package = Package(
         .library(
             name: "Coproduct Primitives",
             targets: ["Coproduct Primitives"]
-        ),
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/swift-primitives/swift-equation-primitives.git", branch: "main"),
@@ -52,7 +52,7 @@ let package = Package(
         .testTarget(
             name: "Coproduct Primitives Tests",
             dependencies: [
-                "Coproduct Primitives",
+                "Coproduct Primitives"
             ]
         ),
     ],
